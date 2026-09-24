@@ -290,7 +290,7 @@ else:
                                             st.error("Erreur lors de la suppression.")
 
             with sub_tab3:
-                st.write("### Activité récente sur la plateforme")
+                st.write("### Activité récente")
                 if st.button("🔄 Actualiser le journal"):
                     st.rerun()
                 
