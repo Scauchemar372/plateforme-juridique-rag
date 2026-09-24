@@ -241,7 +241,7 @@ else:
     # TAB 4 : PANNEAU D'ADMINISTRATION
     if tab4:
         with tab4:
-            st.subheader("⚙️ Administration de la plateforme")
+            st.subheader("⚙️ Administration")
             
             sub_tab1, sub_tab2, sub_tab3 = st.tabs(["➕ Créer Utilisateur", "👥 Gestion des Comptes", "📜 Journal d'Activité"])
             
