@@ -446,7 +446,12 @@ def chat_interactif(
 
     contexte_docs = "\n\n---\n\n".join(retrieved_docs) if retrieved_docs else "Aucun document spécifique trouvé."
 
-    prompt_complet = f"""Tu es un assistant juridique expert, courtois et précis. Réponds à la question en t'appuyant sur les extraits de documents et le contexte de la conversation si nécessaire.
+    if request.contrat_id:
+        consigne_ia = "Ton objectif est de répondre EXCLUSIVEMENT en te basant sur les extraits du document ciblé ci-dessous. Ne croise pas avec d'autres affaires."
+    else:
+        consigne_ia = "Ton objectif est de faire une synthèse transversale en croisant les informations des différents documents juridiques fournis dans les extraits ci-dessous."
+
+    prompt_complet = f"""Tu es un assistant juridique expert, courtois et précis. {consigne_ia}
 
 HISTORIQUE DU CHAT :
 {historique_formate}
@@ -457,7 +462,7 @@ EXTRAITS DE DOCUMENTS PERTINENTS :
 NOUVELLE QUESTION DE L'UTILISATEUR :
 {request.question}
 
-RÉPONSE DU JURISTE / ASSISTANT :"""
+RÉPONSE DU JURISTE :"""
 
     try:
         ollama_res = requests.post(
