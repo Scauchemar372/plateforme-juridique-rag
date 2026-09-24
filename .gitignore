@@ -1,0 +1,18 @@
+# Environnement virtuel
+venv/
+.venv/
+
+# Cache Python
+__pycache__/
+*.pyc
+
+# Données locales et stockage
+chroma_db/
+contrats_upload/
+*.sqlite3
+*.db
+
+# Fichiers système et IDE
+.vscode/
+.idea/
+.DS_Store
